@@ -7,14 +7,18 @@ import os
 from datetime import datetime 
 import pytz 
 
+#Config This first
+#----------#
+TOKEN = "Add your BotFather Access kEy"
 
-# 1591084792:AAGg3icVQx7Ah-K1uY7ZjCtIkJv46cIvRYg
-TOKEN = "1591084792:AAGg3icVQx7Ah-K1uY7ZjCtIkJv46cIvRYg"
+url = "Enter the URL of your sitemap.xml"
 
-CHAT_ID = "@myonlymilf"
+CHAT_ID = "@channel_name"
+#----------#
+
 print('Telebot by - JYDNX\n')
 
-no_of_videos = int(input("Enter the number of latest videos you wanna post - "))
+no_of_videos = int(input("Enter the number of latest posts or link you wanna post - "))
 
 def get_sitemap(url):
     get_url = requests.get(url)
@@ -62,9 +66,7 @@ def parse_sitemap(s):
 
 
 
-
 def main():
-    url = "https://myonlymilf.com/post-sitemap.xml"
 
     sitemap = get_sitemap(url)
     final = {}
@@ -84,7 +86,10 @@ if __name__ == '__main__':
         print("\n"+key +" posted to Telegram")
     
     sys.exit()
-    #To select todays videos
+    
+    #---- To post posts of a particular day
+    #----- Uncomment to run
+    
     # timeZ_Kl = pytz.timezone('Asia/Kolkata')  
     # dt_Kl = datetime.now(timeZ_Kl)
     # dt_Kl = str(dt_Kl)[0:10]
@@ -92,11 +97,11 @@ if __name__ == '__main__':
     # for key in final:
     #     site = final[key][0:10]
 
-    #     if site == dt_Kl and key != "https://myonlymilf.com/":
+    #     if site == dt_Kl:
             
             # post = "Link - "+key+"\n👆👆👆👆"
             # bot = telegram.Bot(token=TOKEN)
-            # bot.sendMessage(chat_id = CHAT_ID, text =post)
+            # bot.sendMessage(chat_id = CHAT_ID, text = post)
             # print(key+" posted to Telegram")
 
         
