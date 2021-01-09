@@ -8,6 +8,6 @@ If your website has new posts uploading daily and you wanna put it into your tel
 2. Get the access token. This can be obtained by messaging `@BotFather` on Telegram and then add the Access keys to the `TOKEN` variable in the Code.<br><br>
 3. Get your chat ID. If it is a public channel, the chat ID will be ```@yourchannelname```. Add this to the CHAT_ID variable. [ Search online for chat id's of private channels ]<br> <br>
 4. Then run ```pip install -r requirements``` in the Telebot directory<br><br>
-5. You are good to go. Either double click the file or just run `python extract.py`
-  
+5. You are good to go. Either double click the file or just run `python extract.py`<br><br><br>
 
+Sitemap extraction reference : "https://gist.github.com/HQJaTu/cd66cf659b8ee633685b43c5e7e92f05.js"
