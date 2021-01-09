@@ -1,3 +1,5 @@
+#---- By JYDNX
+
 from bs4 import BeautifulSoup
 import requests
 from urllib.parse import urlparse
@@ -7,16 +9,18 @@ import os
 from datetime import datetime 
 import pytz 
 
-#Config This first
+print('Telebot by - JYDNX\n')
+
+#Configure This first
 #----------#
-TOKEN = "Add your BotFather Access kEy"
+TOKEN = "Add your BotFather Access key"
 
 url = "Enter the URL of your sitemap.xml"
 
 CHAT_ID = "@channel_name"
 #----------#
 
-print('Telebot by - JYDNX\n')
+
 
 no_of_videos = int(input("Enter the number of latest posts or link you wanna post - "))
 
@@ -28,7 +32,6 @@ def get_sitemap(url):
     else:
         print('Unable to fetch sitemap: %s.' % url)
 
-
 def process_sitemap(s):
     soup = BeautifulSoup(s, 'lxml')
     result = []
@@ -37,8 +40,6 @@ def process_sitemap(s):
         result.append(loc.text)
 
     return result
-
-
 
 def is_sub_sitemap(url):
     parts = urlparse(url)
@@ -64,10 +65,8 @@ def parse_sitemap(s):
 
     return result
 
-
-
+#------- Main function
 def main():
-
     sitemap = get_sitemap(url)
     final = {}
     url_count = 0
@@ -75,33 +74,20 @@ def main():
     a = parse_sitemap(sitemap)    
     return a
 
-
 if __name__ == '__main__':
     final = main()
     for i in range(no_of_videos):
         key = list(final)[i]
+        
+        #Can edit the text to send to your channel
         post = "Link - "+key+"\n👆👆👆👆"
+        
         bot = telegram.Bot(token=TOKEN)
         bot.sendMessage(chat_id = CHAT_ID, text = post)
         print("\n"+key +" posted to Telegram")
     
     sys.exit()
     
-    #---- To post posts of a particular day
-    #----- Uncomment to run
-    
-    # timeZ_Kl = pytz.timezone('Asia/Kolkata')  
-    # dt_Kl = datetime.now(timeZ_Kl)
-    # dt_Kl = str(dt_Kl)[0:10]
-    
-    # for key in final:
-    #     site = final[key][0:10]
 
-    #     if site == dt_Kl:
-            
-            # post = "Link - "+key+"\n👆👆👆👆"
-            # bot = telegram.Bot(token=TOKEN)
-            # bot.sendMessage(chat_id = CHAT_ID, text = post)
-            # print(key+" posted to Telegram")
 
         
